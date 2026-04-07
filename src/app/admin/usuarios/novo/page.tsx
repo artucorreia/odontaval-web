@@ -5,10 +5,8 @@ export const metadata = {
     title: 'Cadastrar usuário'
 }
 
-// ===========================================================================
 export default function UsuariosNovoPage() {
 
-    // ===========================================================================
     return (
         <AppMainContainer title="Novo usuário">
             <UsuarioForm/>

@@ -8,16 +8,16 @@ import Link from "next/link";
 export default function AppMenu() {
     const router = useRouter();
     const [ user, setUser ] = useState<any>(null);
-    // ==============================================================================
+
     const handleLogout = async () => {
         UserServices.logout();
         router.replace('/');
     }
-    // --------------------------
+
     useEffect(() => {
         setUser(UserServices.getCurrentUser());
     }, []);
-    // ==============================================================================
+
     return (
          <div className="w-[60px] md:w-[300px] bg-(--background-primary) flex flex-col pt-[50px]">
             <div className="hidden md:flex flex-col">

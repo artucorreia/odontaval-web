@@ -13,7 +13,7 @@ export default function LoginForm() {
     const [ errorLogin, setErrorLogin ] = useState<string|null>(null);
     const [ messageResetPassword, setMessageResetPassword ] = useState<{success: boolean, message: string}|null>(null);
     const router = useRouter();
-    // ======================================================
+
     const onSubmitLogin = async ({email, password}: any) => {
         
         setErrorLogin(null);
@@ -23,7 +23,7 @@ export default function LoginForm() {
         else
             setErrorLogin('Login ou senha incorreta');
     }
-    // -------
+
     const onSubmitResetPassword = async () => {
 
         setErrorLogin(null);
@@ -34,12 +34,12 @@ export default function LoginForm() {
         else
             setMessageResetPassword({success: false, message: 'Não foi possível resetar a senha'});
     }
-    // --------
+
     const closeModal = () => {
         setEmail('');
         setShowResetPasswordModal(false);
     }
-    // ======================================================
+
     return (
         <>
             <Formik
@@ -71,7 +71,6 @@ export default function LoginForm() {
                 )}
             </Formik>
 
-            {/* MODAL - RESETAR SENHA */}
             {showResetPasswordModal && <AppModal title="Esqueci a senha" onClose={() => closeModal()}>
                 <div className="flex-col flex items-stretch">
 

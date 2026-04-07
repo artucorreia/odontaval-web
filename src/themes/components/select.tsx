@@ -14,10 +14,8 @@ export interface AppInputProps {
 }
 
 export default function AppSelect ({children, name, onChange, value, label, error = "", style = {}, className = ''}: AppInputProps ) {
-    // -------------------------------------------------------------------------
-    const [ showPassword, setShowPassword ] = useState(false);
     const [ touched, setTouched ] = useState(false);
-    // -------------------------------------------------------------------------
+
     return (
         <div className={className} style={style}>
             <p className="ff-default ml-3 mb-[-10px]">{label}</p>

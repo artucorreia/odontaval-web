@@ -10,9 +10,8 @@ export default function AppMainContainer({title, children}: AppMainContainerProp
 
     return (
          <main className="flex flex-col flex-1">
-            {/* HEADER */}
             <div className="h-[50px] bg-(--background-primary) mb-[5px] p-[10px] pl-[50px]">
-                NOME DO APLICATIVO
+                OdontAval
             </div>
             <header className="min-h-[100px] bg-(--background-primary) pt-[10px] pl-[50px] rounded-es-xl mb-[30px]">
                 <h1 className="font-bold text-[30px]" > {title} </h1>

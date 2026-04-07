@@ -22,22 +22,21 @@ export default function UserList() {
         admin: '-1',
     })
 
-    // ======================================================================
     const getUsers = async (page: number) => {
         const { success, users, pagination } = await UserServices.getAll(page, filter);
         if (success) {
-            setUsers(users);
+            setUsers(users ?? []);
             setPagination(pagination);
         }
         setLoading(false);
     }
-    // -----------
+
     const handleRemove = async (user: any) => {
         setUserRemove(user);
         setSuccess(null);
         setError(null);
     }
-    // -----------
+
     const handleModalConfirm = async () => {
         setLoading(true);
         setUserRemove(null);
@@ -45,20 +44,18 @@ export default function UserList() {
         setSuccess('Usuário excluido com sucesso!');
         getUsers(1);
     }
-    // -----------
+
     const handleModalCancel = async () => {
         setUserRemove(null);
     }
-    // -----------
+
     const handlePage = async (newPage: number) => {
         setPage(newPage);
         getUsers(newPage);
     }
-    // -----------
+
     useEffect(() => {
-        //Recupera usuário
         getUsers(page);
-        //Recupera mensagem 
         (() => {
             const data = getFlashData();
             if (data?.success) setSuccess(data.success);
@@ -66,10 +63,8 @@ export default function UserList() {
         })()
 
     }, []);
-    // ======================================================================
     return (
         <>
-            {/* FILTRO [INICIO] */}
             <h3 className="text-[18px] font-bold">Filtros</h3>
             <div className="flex flex-col border-b-[2px] border-[#dedede] p-2">
                 <div className="flex gap-2">
@@ -85,7 +80,6 @@ export default function UserList() {
                 </div>
                 <AppButton title="Filtrar" className="w-[100px]" type="outline" onClick={() => getUsers(page)} />
             </div>
-            {/* FILTRO [FIM] */}
 
             {success && <p className="bg-[#6eef01] px-5 text-center rounded-full color-[white] p-1">{success}</p>}
             {error && <p className="bg-[tomato] px-5 text-center rounded-full color-[white] p-1">{error}</p>}
@@ -93,7 +87,6 @@ export default function UserList() {
             {loading && <div className="flex justify-center"><AppLoader size={50} className="self-center" /></div>}
             {!loading && <div className="overflow-x-auto">
                 <table className="min-w-full bg-white">
-                    {/* HEADER  */}
                     <thead>
                         <tr>
                             <th className="py-2 px-4 border-b border-gray-200 text-left text-sm font-semibold text-gray-600">Nome</th>
@@ -103,7 +96,6 @@ export default function UserList() {
                         </tr>
                     </thead>
 
-                    {/* DADOS */}
                     <tbody>
                         {users.map(user => (
                             <tr key={user.id}>

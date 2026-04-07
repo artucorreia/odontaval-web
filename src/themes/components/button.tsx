@@ -14,7 +14,7 @@ export interface AppButtonProps {
     style?: any;
     className?: string
 }
-// ==========================================================================
+
 export default function AppButton({title, onClick, color='--primary-color', textColor='white', form='square', type='solid', disabled, icon, href, style = {}, className = ''}: AppButtonProps) {
     
     let tailwind = className + ' flex justify-center py-[5px] px-[15px] text-[15px] flex border';
@@ -25,24 +25,16 @@ export default function AppButton({title, onClick, color='--primary-color', text
         color: textColor.startsWith('--') ? `var(${textColor})` : textColor
     }
     
-    //Tipo
     if (type == 'outline') {
         dynamicStyle['background'] = 'transparent';
         dynamicStyle['color'] = color.startsWith('--') ? `var(${color})` : color;
     }
     
-    //Forma
     if (form == 'round') tailwind += ' rounded-full'
 
-    //Habilitado
     if (disabled) tailwind += ' opacity-50'
     else tailwind += ' cursor-pointer'
 
-    
-
-    // ==========================================================================
-    // ------------------------
-    // ==========================================================================
     return (
         <Link href={href ? href : '#'}>
             <div className={tailwind} style={dynamicStyle} onClick={disabled ? () => {} : onClick}>

@@ -10,13 +10,13 @@ import { useEffect, useState } from "react";
 export interface UsuarioFormProps {
     userID: number
 }
-// ===========================================================================
+
 export default function UsuarioForm({ userID }: UsuarioFormProps) {
 
     const router = useRouter();
     const [ user, setUser ] = useState({name: '', email: '', password: '', admin: false});
     const [ error, setError ] = useState<string|null>(null);
-    // ===========================================================================
+
     const handleOnSubmit = async (data:any) => {
         setError(null);
         const { success, error } =  await UserServices.update(data);
@@ -27,7 +27,7 @@ export default function UsuarioForm({ userID }: UsuarioFormProps) {
             setError(error);
         }
     }
-    // -----------------------
+
     useEffect(() => {
         (async() => {
             const { success, user } = await UserServices.getById(userID);
@@ -38,7 +38,7 @@ export default function UsuarioForm({ userID }: UsuarioFormProps) {
             }
         })();
     }, [])
-    // ===========================================================================
+
     return (    
         <Formik
             initialValues={user}

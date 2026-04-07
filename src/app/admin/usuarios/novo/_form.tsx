@@ -7,12 +7,12 @@ import { useRouter } from "next/navigation";
 import { setFlashData } from "@/helpers/router";
 import { useState } from "react";
 
-// ===========================================================================
+
 export default function UsuarioForm() {
 
     const router = useRouter();
     const [ error, setError ] = useState<string|null>(null);
-    // ===========================================================================
+
     const handleOnSubmit = async (data:any) => {
         setError(null);
         const { success, error } =  await UserServices.create(data);
@@ -23,7 +23,7 @@ export default function UsuarioForm() {
             setError(error);
         }
     }
-    // ===========================================================================
+
     return (    
         <Formik
             initialValues={{name: '', email: '', password: '', admin: false}}

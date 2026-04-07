@@ -2,11 +2,9 @@ import { Metadata } from "next";
 import React from "react";
 import { AppMenu } from "@/themes/components";
 
-// ===============================================
 export const metadata: Metadata = {
   title: 'Gerenciador Web',
 };
-// ===============================================
 
 export default function AdminLayout({
   children,
