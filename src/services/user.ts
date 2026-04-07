@@ -59,7 +59,8 @@ const UserServices = {
             success: true, users: [
                 { id: 1, name: 'Teste', email: 'teste@teste.com', admin: false },
                 { id: 2, name: 'Admin', email: 'admin@teste.com', admin: true },
-                { id: 3, name: 'Carlos', email: 'carlos@teste.com', admin: false }
+                { id: 3, name: 'Arthur', email: 'arthur@teste.com', admin: true },
+                { id: 4, name: 'Hugo', email: 'hugo@teste.com', admin: false }
             ],
             pagination: {
                 firstPage: false,
